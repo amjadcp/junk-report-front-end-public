@@ -37,8 +37,14 @@
                                 <br>
                                 <div class="row">
                                     <div class="col">
-                                        <input type="number" class="form-control" id="ward-number" name="ward-number" placeholder="Ward Number">
+                                        <select class="form-control" id="ward-number">
+                                            <option selected>Ward Number</option>
+                                            
+                                        </select>
                                     </div>
+                                    <!-- <div class="col">
+                                        <input type="number" class="form-control" id="ward-number" name="ward-number" placeholder="Ward Number">
+                                    </div> -->
                                     <div class="col">
                                         <input type="text" class="form-control" id="house-no" name="house-no" placeholder="Honuse No.">
                                     </div>
@@ -102,5 +108,6 @@
         <!-- api -->
         <script src="./js/api/rooturl.js"></script>
         <script src="./js/api/raiseTicket.js"></script>
+        <script src="./js/api/getAllWard.js"></script>
     </body>
 </html>

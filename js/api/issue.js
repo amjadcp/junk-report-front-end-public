@@ -24,6 +24,10 @@ document.getElementById('send').addEventListener('click', async()=>{
             alert('Invalid Token')
             location.reload()
         }
+        else if(res.status===400){
+            alert('Only can report after 7 days of ticket raise')
+            location.reload()
+        }
         else alert('Check your Ticket ID!!!')
     }else alert('Fill the form')
     

@@ -5,10 +5,11 @@ document.getElementById('raise').addEventListener('click', async()=>{
     const houseNo = document.getElementById('house-no').value
     const address = document.getElementById('address').value
     const pincode = document.getElementById('pincode').value
-    const waste = document.getElementById('waste').value
-    const weight = document.getElementById('weight').value
-
-    if(name!==''&&phoneNumber!==''&&wardNo!==''&&houseNo!==''&&address!==''&&pincode!==''&&waste!==''&&weight!==''){
+    let waste = []
+    document.getElementsByName('waste').forEach(e=>{
+        if(e.checked) waste.push(e.value)
+    })
+    if(name!==''&&phoneNumber!==''&&wardNo!==''&&houseNo!==''&&address!==''&&pincode!==''&&waste!==''){
         const myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         let res = await fetch(`${ROOT_URL}/api/ticket/raise-ticket`, {
@@ -16,7 +17,7 @@ document.getElementById('raise').addEventListener('click', async()=>{
             headers: {'Content-Type': 'application/json'},
             mode: 'cors',
             body: JSON.stringify({
-                name, phoneNumber, wardNo, houseNo, address, pincode, waste, weight
+                name, phoneNumber, wardNo, houseNo, address, pincode, waste
             }),
             credentials: 'same-origin'
         })
@@ -31,8 +32,7 @@ document.getElementById('raise').addEventListener('click', async()=>{
     document.getElementById('house-no').value = ''
     document.getElementById('address').value = ''
     document.getElementById('pincode').value = ''
-    document.getElementById('waste').value = ''
-    document.getElementById('weight').value = ''
+    // document.getElementById('waste').value = ''
 })
 
 
